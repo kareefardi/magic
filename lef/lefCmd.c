@@ -62,6 +62,7 @@ CmdLef(w, cmd)
     TxCommand *cmd;
 {
     int option, i, cargs, units = 1000;	    /* Default nanometers */
+    int pinGapMultiplier = 1;
     char **msg, *namep;
     CellUse *selectedUse;
     CellDef *selectedDef;
@@ -219,6 +220,14 @@ CmdLef(w, cmd)
 			    lefTech = TRUE;
 			else
 			    TxPrintf("The \"-tech\" option is only for lef write\n");
+		    }
+		    else if (!strncmp(cmd->tx_argv[i], "-pinGapMultiplier", 20))
+		    {
+			if (is_lef)
+			    i++;
+			    pinGapMultiplier = atoi(cmd->tx_argv[i]);
+			else
+			    TxPrintf("The \"-pinGapMultiplier\" option is only for lef write\n");
 		    }
 		    else if (!strncmp(cmd->tx_argv[i], "-hide", 5))
 		    {

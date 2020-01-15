@@ -633,7 +633,7 @@ MakeLegalLEFSyntax(text)
  */
 
 void
-lefWriteMacro(def, f, scale, hide)
+lefWriteMacro(def, f, scale, hide, pinGapMultiplier)
     CellDef *def;	/* Def for which to generate LEF output */
     FILE *f;		/* Output to this file */
     float scale;	/* Output distance units conversion factor */
@@ -1070,6 +1070,7 @@ lefWriteMacro(def, f, scale, hide)
 		SelectChunk(&scx, lab->lab_type, 0, &carea, FALSE);
 		if (GEO_RECTNULL(&carea)) carea = lab->lab_rect;
 		lspace = DRCGetDefaultLayerSpacing(lab->lab_type, lab->lab_type);
+		lspace = lspace * pinGapMultiplier;
 		carea.r_xbot -= lspace;
 		carea.r_ybot -= lspace;
 		carea.r_xtop += lspace;
@@ -1254,7 +1255,7 @@ lefDefPushFunc(use, recurse)
  */
 
 void
-LefWriteCell(def, outName, isRoot, lefTech, lefHide)
+LefWriteCell(def, outName, isRoot, lefTech, lefHide, pinGapMultiplier)
     CellDef *def;		/* Cell being written */
     char *outName;		/* Name of output file, or NULL. */
     bool isRoot;		/* Is this the root cell? */
@@ -1283,7 +1284,7 @@ LefWriteCell(def, outName, isRoot, lefTech, lefHide)
 
     if (isRoot)
 	lefWriteHeader(def, f, lefTech);
-    lefWriteMacro(def, f, scale, lefHide);
+    lefWriteMacro(def, f, scale, lefHide, pinGapMultiplier);
     fclose(f);
 }
 
