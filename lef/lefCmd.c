@@ -223,9 +223,10 @@ CmdLef(w, cmd)
 		    }
 		    else if (!strncmp(cmd->tx_argv[i], "-pinGapMultiplier", 20))
 		    {
-			if (is_lef)
+			if (is_lef) {
 			    i++;
 			    pinGapMultiplier = atoi(cmd->tx_argv[i]);
+			}
 			else
 			    TxPrintf("The \"-pinGapMultiplier\" option is only for lef write\n");
 		    }
