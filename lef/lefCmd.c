@@ -221,7 +221,7 @@ CmdLef(w, cmd)
 			else
 			    TxPrintf("The \"-tech\" option is only for lef write\n");
 		    }
-		    else if (!strncmp(cmd->tx_argv[i], "-pinGapMultiplier", 20))
+		    else if (!strncmp(cmd->tx_argv[i], "-pinGapMultiplier", 17))
 		    {
 			if (is_lef) {
 			    i++;
