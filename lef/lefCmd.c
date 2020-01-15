@@ -227,6 +227,10 @@ CmdLef(w, cmd)
 			    i++;
 			    cargs--;
 			    pinGapMultiplier = atoi(cmd->tx_argv[i]);
+			    char x[2];
+			    sprintf(x, "%d", pinGapMultiplier);
+			    TxPrintf(x);
+			    TxPrintf("\n");
 			}
 			else
 			    TxPrintf("The \"-pinGapMultiplier\" option is only for lef write\n");

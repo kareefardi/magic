@@ -638,6 +638,7 @@ lefWriteMacro(def, f, scale, hide, pinGapMultiplier)
     FILE *f;		/* Output to this file */
     float scale;	/* Output distance units conversion factor */
     bool hide;		/* If TRUE, hide all detail except pins */
+    int pinGapMultiplier;
 {
     bool propfound;
     char *propvalue, *class = NULL;
@@ -1261,6 +1262,7 @@ LefWriteCell(def, outName, isRoot, lefTech, lefHide, pinGapMultiplier)
     bool isRoot;		/* Is this the root cell? */
     bool lefTech;		/* Output layer information if TRUE */
     bool lefHide;		/* Hide detail other than pins if TRUE */
+    int pinGapMultiplier;
 {
     char *filename;
     FILE *f;
