@@ -281,7 +281,7 @@ CmdLef(w, cmd)
 		DefWriteCell(selectedUse->cu_def, namep, allSpecial, units);
 	    else
 		LefWriteCell(selectedUse->cu_def, namep, selectedUse->cu_def
-			== EditRootDef, lefTech, lefHide);
+			== EditRootDef, lefTech, lefHide, pinGapMultiplier);
 	    break;
 	case LEF_HELP:
 wrongNumArgs:
