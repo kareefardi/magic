@@ -225,6 +225,7 @@ CmdLef(w, cmd)
 		    {
 			if (is_lef) {
 			    i++;
+			    cargs--;
 			    pinGapMultiplier = atoi(cmd->tx_argv[i]);
 			}
 			else
