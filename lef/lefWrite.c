@@ -1071,7 +1071,15 @@ lefWriteMacro(def, f, scale, hide, pinGapMultiplier)
 		SelectChunk(&scx, lab->lab_type, 0, &carea, FALSE);
 		if (GEO_RECTNULL(&carea)) carea = lab->lab_rect;
 		lspace = DRCGetDefaultLayerSpacing(lab->lab_type, lab->lab_type);
-		lspace = lspace * pinGapMultiplier;
+		lspace = lspace * (double) pinGapMultiplier;
+		char x[20];
+		char y[2];
+		sprintf(x, "%d", lspace);
+		sprintf(y, "%d", pinGapMultiplier);
+		TxPrintf(x);
+		TxPrintf("\n");
+		TxPrintf(y);
+		TxPrintf("\n");
 		carea.r_xbot -= lspace;
 		carea.r_ybot -= lspace;
 		carea.r_xtop += lspace;
